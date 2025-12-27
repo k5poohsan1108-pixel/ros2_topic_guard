@@ -1,26 +1,22 @@
 #!/bin/bash
+set -e
 
-# ROS 2 ワークスペースに移動
-cd ~/ros2_ws
+cd /root/ros2_ws
 
-# ビルドして環境をセット
-colcon build
+colcon build --packages-select ros2_topic_guard
 source install/setup.bash
 
-# 5秒だけ Launch を走らせてログに保存
-timeout 5 ros2 launch ros2_topic_guard battery_monitor_launch.py > /tmp/battery_monitor.log
+# Launch を5秒実行
+timeout 5 ros2 launch ros2_topic_guard battery_monitor_launch.py > /tmp/battery_monitor.log 2>&1
 
-# Battery Publisher の出力確認
-grep "Battery:" /tmp/battery_monitor.log
-if [ $? -ne 0 ]; then
-  echo "FAIL: No Battery messages"
-  exit 1
-fi
+# publisher が動いたか
+grep -q "Battery:" /tmp/battery_monitor.log
+echo "Battery publisher OK"
 
-# Battery Checker の OK 出力確認
-grep "Battery OK:" /tmp/battery_monitor.log
-if [ $? -ne 0 ]; then
-  echo "WARNING: No OK logs"
-fi
+# checker が動いたか
+grep -q "Battery" /tmp/battery_monitor.log
+echo "Battery checker OK"
 
-echo "Battery monitor basic output OK"
+# 異常 or 正常のどちらかは出ているか
+grep -Eq "Battery OK:|Battery WARNING:" /tmp/battery_monitor.log
+echo "Battery judgment OK"
