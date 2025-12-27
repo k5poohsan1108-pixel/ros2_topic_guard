@@ -1,0 +1,19 @@
+name: test
+
+on: push
+
+jobs:
+  test:
+    runs-on: ubuntu-22.04
+    container: yamaguchi/ubuntu22.04-ros2:latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: build and test
+        run: |
+          rsync -av ./ /root/ros2_ws/src/ros2_topic_guard/
+          cd /root/ros2_ws
+          rosdep update
+          rosdep install --from-paths src --ignore-src -r -y
+          colcon build
+          source install/setup.bash
+          ./src/ros2_topic_guard/test/test_battery_monitor.sh
