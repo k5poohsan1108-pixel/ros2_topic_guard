@@ -13,7 +13,11 @@ jobs:
         run: |
           rsync -av ./ /root/ros2_ws/src/ros2_topic_guard/
           cd /root/ros2_ws
+
+          rosdep init || true
+          rosdep update
           rosdep install --from-paths src --ignore-src -r -y
+
           colcon build --packages-select ros2_topic_guard
           source install/setup.bash
           ./src/ros2_topic_guard/test/test_battery_monitor.sh
