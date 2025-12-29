@@ -1,4 +1,7 @@
 #!/bin/bash
+# SPDX-FileCopyrightText: 2025 Keigo Yamaguchi
+# SPDX-License-Identifier: GPL-3.0-only
+
 set -e
 
 cd /root/ros2_ws

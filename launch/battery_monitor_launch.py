@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2025 Keigo Yamaguchi
+# SPDX-License-Identifier: GPL-3.0-only
+
 import launch
 import launch_ros.actions
 
