@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # SPDX-FileCopyrightText: 2025 Keigo Yamaguchi
 # SPDX-License-Identifier: GPL-3.0-only
 
