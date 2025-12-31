@@ -12,6 +12,7 @@ jobs:
       - name: build and test
         shell: bash
         run: |
+          set -e
           rsync -av ./ /root/ros2_ws/src/ros2_topic_guard/
           cd /root/ros2_ws
 
