@@ -37,6 +37,7 @@ ros2_topic_guard は、ROS 2 上でトピックの値を監視し、
 ---
 
 以下のコマンドでノード群を起動できる。
+テストでは、ログ出力に加えてコマンドの終了ステータスが正常であることも確認している。
 
 ```bash
 ros2 launch ros2_topic_guard battery_monitor_launch.py
