@@ -11,6 +11,9 @@ ros2 launch ros2_topic_guard battery_monitor_launch.py &
 PID=$!
 
 sleep 5
+
+ros2 topic echo /battery_state -n 1 | grep -E "data: [0-2]"
+
 kill $PID || true
 
-echo "Launch test completed"
+echo "Launch and topic test completed"
