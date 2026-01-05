@@ -9,7 +9,7 @@ ros2_topic_guard は、ROS 2 上でトピックの値を監視し、
 
 ---
 
-## 動作確認
+## 使用環境
 
 - Ubuntu 22.04
 - ROS 2 Humble
@@ -33,19 +33,22 @@ ros2_topic_guard は、ROS 2 上でトピックの値を監視し、
 | `/battery` | std_msgs/msg/Float32 | バッテリー残量（%）を表す数値 |
 
 ## 実行方法
-
+ros2 launch ros2_topic_guard battery_monitor_launch.py
 ---
-
+## 動作確認
 以下のコマンドでノード群を起動できる。
 テストでは、ログ出力に加えてコマンドの終了ステータスが正常であることも確認している。
 
 ```bash
-ros2 launch ros2_topic_guard battery_monitor_launch.py
 [INFO] [battery_publisher]: Battery: 98.3%
 [INFO] [battery_checker]: Battery level OK
 ```
 ## License
 
-SPDX-License-Identifier: GPL-3.0-only
+このソフトウェアはGPL-3.0ライセンスに基づいている。
+
+## Copyright
+
+Copyright (c) 2025 Keigo Yamaguchi
 
 
