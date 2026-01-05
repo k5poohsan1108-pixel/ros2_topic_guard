@@ -5,13 +5,14 @@
 set -e
 
 source /opt/ros/humble/setup.bash
-
 source /root/ros2_ws/install/setup.bash
 
 ros2 launch ros2_topic_guard battery_monitor_launch.py &
 PID=$!
 
 sleep 5
+
+ros2 topic echo /battery_state -n 1
 
 kill $PID || true
 
