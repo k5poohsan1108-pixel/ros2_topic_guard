@@ -4,30 +4,50 @@
 
 import rclpy
 from rclpy.node import Node
-from std_msgs.msg import Float32
+from std_msgs.msg import Float32, Int8
 
 class BatteryChecker(Node):
+
     def __init__(self):
         super().__init__('battery_checker')
 
-        self.declare_parameter('threshold', 30.0)
-        self.threshold = self.get_parameter('threshold').value
+        self.low_threshold = 30.0
+        self.critical_threshold = 10.0
 
-        self.subscription = self.create_subscription(
+        self.sub = self.create_subscription(
             Float32,
             'battery_level',
             self.callback,
             10
         )
 
-    def callback(self, msg):
-        if msg.data < self.threshold:
-            self.get_logger().warn(f'Battery LOW: {msg.data:.1f}% (threshold {self.threshold}%)')
-        else:
-            self.get_logger().info(f'Battery OK: {msg.data:.1f}% (threshold {self.threshold}%)')
+        self.state_pub = self.create_publisher(
+            Int8,
+            'battery_state',
+            10
+        )
 
-def main(args=None):
-    rclpy.init(args=args)
+    def callback(self, msg):
+        level = msg.data
+        state = Int8()
+
+        self.get_logger().info(f"callback called: {msg.data}")
+
+        if level < self.critical_threshold:
+            state.data = 2
+            self.get_logger().error('Battery CRITICAL')
+        elif level < self.low_threshold:
+            state.data = 1
+            self.get_logger().warning('Battery LOW')
+        else:
+            state.data = 0
+            self.get_logger().info('Battery OK')
+
+        self.state_pub.publish(state)
+
+
+def main():
+    rclpy.init()
     node = BatteryChecker()
     rclpy.spin(node)
     node.destroy_node()
