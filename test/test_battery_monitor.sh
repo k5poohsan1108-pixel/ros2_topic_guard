@@ -12,8 +12,10 @@ PID=$!
 
 sleep 5
 
-ros2 topic echo /battery_state -n 1
+ros2 topic list | grep -q /battery_level
+ros2 topic list | grep -q /battery_state
 
-kill $PID || true
+kill $PID
+wait $PID || true
 
-echo "Launch test completed"
+echo "Battery monitor test passed"
