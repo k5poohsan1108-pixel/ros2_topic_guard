@@ -44,7 +44,7 @@ ros2_topic_guard は、ROS 2 上で数値トピックを監視し、
 ```bash
 ros2 launch ros2_topic_guard battery_monitor_launch.py
 ros2 topic echo /battery_state
-# data: 0
+ data: 0
 ```
 
 ## License
