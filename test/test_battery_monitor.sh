@@ -4,18 +4,19 @@
 
 set -e
 
-source /opt/ros/humble/setup.bash
-source /root/ros2_ws/install/setup.bash
-
 ros2 launch ros2_topic_guard battery_monitor_launch.py &
-PID=$!
+LAUNCH_PID=$!
 
 sleep 5
 
-ros2 topic list | grep -q /battery_level
-ros2 topic list | grep -q /battery_state
+STATE=$(ros2 topic echo /battery_state --once | grep data | awk '{print $2}')
 
-kill $PID
-wait $PID || true
+kill $LAUNCH_PID || true
 
-echo "Battery monitor test passed"
+if [ "$STATE" = "0" ] || [ "$STATE" = "1" ] || [ "$STATE" = "2" ]; then
+  echo "battery_state received: $STATE"
+  exit 0
+else
+  echo "battery_state not received"
+  exit 1
+fi
