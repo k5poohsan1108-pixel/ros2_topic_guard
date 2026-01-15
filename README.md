@@ -1,5 +1,5 @@
 # ros2_topic_guard
-[![test](https://github.com/k5poohsan1108-pixel/ros2_topic_guard/actions/workflows/test.yml/badge.svg)](https://github.com/k5poohsan1108-pixel/ros2_topic_guard/actions/workflows/test.yml)
+[![test](https://github.com/k5poohsan1108-pixel/ros2_topic_guard/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/k5poohsan1108-pixel/ros2_topic_guard/actions/workflows/test.yml)
 ## 概要
 ros2_topic_guard は、ROS 2 上で数値トピックを監視し、
 その値に基づいた状態を別のトピックとして出力するパッケージである。
