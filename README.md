@@ -1,9 +1,11 @@
 # ros2_topic_guard
 [![test](https://github.com/k5poohsan1108-pixel/ros2_topic_guard/actions/workflows/test.yml/badge.svg)](https://github.com/k5poohsan1108-pixel/ros2_topic_guard/actions/workflows/test.yml)
 ## 概要
-ros2_topic_guard は、ROS 2 上でトピックの値を監視し、
-状態を別のトピックとして出力するパッケージである。
-本パッケージは、バッテリー残量を例として扱う。
+ros2_topic_guard は、ROS 2 上で数値トピックを監視し、
+その値に基づいた状態を別のトピックとして出力するパッケージである。
+本パッケージでは、/battery_level を入力とし、
+バッテリー残量に応じた状態を /battery_state として出力する。
+
 ---
 
 
@@ -41,11 +43,13 @@ ros2_topic_guard は、ROS 2 上でトピックの値を監視し、
 以下のコマンドでノード群を起動できる。
 ```bash
 ros2 launch ros2_topic_guard battery_monitor_launch.py
+ros2 topic echo /battery_state
+# data: 0
 ```
 
 ## License
 
-このソフトウェアはGPL-3.0ライセンスに基づいている。
+このソフトウェアはGPL3.0ライセンスに基づいている。
 
 ## Copyright
 
