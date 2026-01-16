@@ -7,6 +7,7 @@ from rclpy.node import Node
 from std_msgs.msg import Float32
 import random
 
+
 class BatteryPublisher(Node):
     def __init__(self):
         super().__init__('battery_publisher')
@@ -22,6 +23,7 @@ class BatteryPublisher(Node):
         msg.data = self.battery_level
         self.publisher_.publish(msg)
         self.get_logger().info(f'Battery: {msg.data:.1f}%')
+
 
 def main(args=None):
     rclpy.init(args=args)

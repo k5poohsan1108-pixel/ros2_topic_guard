@@ -4,6 +4,7 @@
 from ament_copyright.main import main
 import pytest
 
+
 @pytest.mark.skip(reason='SPDX header is checked manually')
 @pytest.mark.copyright
 @pytest.mark.linter
