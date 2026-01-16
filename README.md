@@ -8,13 +8,6 @@ ros2_topic_guard は、ROS 2 上で数値トピックを監視し、
 
 ---
 
-## 使用環境
-
-- Ubuntu 22.04
-- ROS 2 Humble
-
----
-
 本パッケージは、以下の 2 つのノードから構成される。
 
 - battery_publisher
@@ -25,7 +18,7 @@ ros2_topic_guard は、ROS 2 上で数値トピックを監視し、
 
 ---
 
-## トピック
+使用するトピックは以下の通りである。
 - /battery_level（std_msgs/msg/Float32）  
   バッテリー残量（%）
 - /battery_state（std_msgs/msg/Int8）  
@@ -44,6 +37,11 @@ data: 0
 ```
 ---
 
+## 使用環境
+
+- Ubuntu 22.04
+- ROS 2 Humble
+  
 ## ライセンス
 
 - このソフトウェアのパッケージは、3条項BSDライセンスの下、再頒布および使用が許可される。
