@@ -40,7 +40,7 @@ ros2 launch ros2_topic_guard battery_monitor_launch.py
 別のターミナルで、状態がトピックとして出力される。
 ```bash
 ros2 topic echo /battery_state
- data: 0
+data: 0
 ```
 ---
 
