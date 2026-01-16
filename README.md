@@ -8,7 +8,6 @@ ros2_topic_guard は、ROS 2 上で数値トピックを監視し、
 
 ---
 
-
 ## 使用環境
 
 - Ubuntu 22.04
@@ -27,13 +26,13 @@ ros2_topic_guard は、ROS 2 上で数値トピックを監視し、
 ---
 
 ## トピック
-
-| トピック名 | 型 | 説明 |
-|------------|----|------|
-| `/battery_level` | std_msgs/msg/Float32 | バッテリー残量（%） |
-| `/battery_state` | std_msgs/msg/Int8 | バッテリー状態（0: 正常, 1: 注意, 2: 危険） |
-
+- /battery_level（std_msgs/msg/Float32）  
+  バッテリー残量（%）
+- /battery_state（std_msgs/msg/Int8）  
+  バッテリー状態（0: 正常, 1: 注意, 2: 危険）
+  
 ---
+
 以下のコマンドでノード群を起動できる。
 ```bash
 ros2 launch ros2_topic_guard battery_monitor_launch.py
@@ -43,6 +42,7 @@ ros2 launch ros2_topic_guard battery_monitor_launch.py
 ros2 topic echo /battery_state
  data: 0
 ```
+---
 
 ## License
 
