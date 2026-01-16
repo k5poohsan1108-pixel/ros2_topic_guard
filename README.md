@@ -46,10 +46,7 @@ ros2 topic echo /battery_state
 
 ## License
 
-このソフトウェアのパッケージは、3条項BSDライセンスの下、再頒布および使用が許可される。
-
-## Copyright
-
-Copyright (c) 2025 Keigo Yamaguchi
+- このソフトウェアのパッケージは、3条項BSDライセンスの下、再頒布および使用が許可される。
+- Copyright (c) 2025 Keigo Yamaguchi
 
 
