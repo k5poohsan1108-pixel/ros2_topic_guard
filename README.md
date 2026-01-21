@@ -8,8 +8,8 @@
 
 本パッケージは、以下の 2 つのノードから構成される。
 
-- `battery_publisher`: バッテリー残量を模擬した数値を定期的に publish するノード
-- `battery_checker`: バッテリー残量トピックを subscribe し、残量に応じた状態をトピックとして publish するノード
+- `battery_publisher` : バッテリー残量を模擬した数値を定期的に publish するノード
+- `battery_checker` : バッテリー残量トピックを subscribe し、残量に応じた状態をトピックとして publish するノード
 
 ---
 
