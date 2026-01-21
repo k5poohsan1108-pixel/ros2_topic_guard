@@ -8,17 +8,17 @@
 
 本パッケージは、以下の 2 つのノードから構成される。
 
-- `battery_publisher`:バッテリー残量を模擬した数値を定期的に publish するノード
-- `battery_checker`:バッテリー残量トピックを subscribe し、残量に応じた状態をトピックとして publish するノード
+- `battery_publisher`: バッテリー残量を模擬した数値を定期的に publish するノード
+- `battery_checker`: バッテリー残量トピックを subscribe し、残量に応じた状態をトピックとして publish するノード
 
 ---
 
 使用するトピックは以下の通りである。
 
-- `battery_level`（std_msgs/msg/Float32）  
-  バッテリー残量（%）
-- `battery_state`（std_msgs/msg/Int8）  
-  バッテリー状態（0: 正常, 1: 注意, 2: 危険）
+- `battery_level`（`std_msgs/msg/Float32`）  
+  バッテリー残量（%）を表すトピック
+- `battery_state`（`std_msgs/msg/Int8`）  
+  バッテリー状態を表すトピック（0: 正常, 1: 注意, 2: 危険）
   
 ---
 
