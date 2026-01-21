@@ -1,8 +1,7 @@
 # ros2_topic_guard
 [![test](https://github.com/k5poohsan1108-pixel/ros2_topic_guard/actions/workflows/test.yml/badge.svg)](https://github.com/k5poohsan1108-pixel/ros2_topic_guard/actions/workflows/test.yml)
 
-`ros2_topic_guard` は、ROS 2 においてトピックの内容を監視するためのパッケージであり、
-本課題ではバッテリー残量トピックの監視を対象としている。
+`ros2_topic_guard` は、ROS 2 においてトピックの内容を監視するためのパッケージであり、バッテリー残量トピックの監視を対象としている。
 
 ---
 
