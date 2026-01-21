@@ -1,27 +1,23 @@
 # ros2_topic_guard
 [![test](https://github.com/k5poohsan1108-pixel/ros2_topic_guard/actions/workflows/test.yml/badge.svg)](https://github.com/k5poohsan1108-pixel/ros2_topic_guard/actions/workflows/test.yml)
 
-ros2_topic_guard は、ROS 2 上で数値トピックを監視し、
-その値に基づいた状態を別のトピックとして出力するパッケージである。
-本パッケージでは、/battery_level を入力とし、
-バッテリー残量に応じた状態を /battery_state として出力する。
+`ros2_topic_guard` は、ROS 2 においてトピックの内容を監視するためのパッケージであり、
+本課題ではバッテリー残量トピックの監視を対象としている。
 
 ---
 
 本パッケージは、以下の 2 つのノードから構成される。
 
-- battery_publisher
-バッテリー残量を模擬した数値を定期的に publish するノード
-
-- battery_checker
-バッテリー残量トピックを subscribe し、残量に応じた状態をトピックとして publish するノード
+- `battery_publisher`:バッテリー残量を模擬した数値を定期的に publish するノード
+- `battery_checker`:バッテリー残量トピックを subscribe し、残量に応じた状態をトピックとして publish するノード
 
 ---
 
 使用するトピックは以下の通りである。
-- /battery_level（std_msgs/msg/Float32）  
+
+- `battery_level`（std_msgs/msg/Float32）  
   バッテリー残量（%）
-- /battery_state（std_msgs/msg/Int8）  
+- `battery_state`（std_msgs/msg/Int8）  
   バッテリー状態（0: 正常, 1: 注意, 2: 危険）
   
 ---
