@@ -15,9 +15,9 @@
 
 使用するトピックは以下の通りである。
 
-- `battery_level`（`std_msgs/msg/Float32`)
+- `battery_level`（`std_msgs/msg/Float32`) 
    バッテリー残量（%）を表すトピック
-- `battery_state`（`std_msgs/msg/Int8`)
+- `battery_state`（`std_msgs/msg/Int8`) 
    バッテリー状態を表すトピック（0: 正常, 1: 注意, 2: 危険）
   
 ---
